@@ -1,0 +1,56 @@
+<div class="row">
+ <h2 class="row-title">My Stats:</h2>
+<input size="130" placeholder="enter your {{coin}} address" ng-model="walletAddressModel" id='walletaddy'><button ng-click="setWallet()">Get Stats</button>
+        
+<div ng-if="walletAddress != defaultWallet">
+    <div class="col-md-3"></div>
+  <div class="col-md-4 col-sm-7 feature" style="text-align: left">
+            <i class="fa fa-bank"></i> Pending Balance: {{myPendingBalance}}<br>
+            <i class="fa fa-money"></i> Total Paid: {{myPaid}}<br>
+            <i class="fa fa-clock-o"></i> Last Share Submitted: {{myLastShare | date:"dd/MM/yyyy 'at' h:mma"}}<br>
+            <i class="fa fa-tachometer"></i> Hash Rate: {{myHashRate}}<br>
+            <i class="fa fa-cloud-upload"></i> Total Hashes Submitted: {{myHashes}}<br>
+
+          </div>
+          <div class="col-md-3"></div>
+</div>
+</div>
+<div class="row"  ng-if="walletAddress != defaultWallet">
+<div  style="text-align: left">
+    <h4 class="yourStats">Payments</h4>
+    <div class="yourStats table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><i class="fa fa-clock-o"></i> Time Sent</th>
+                <th><i class="fa fa-paw"></i> Transaction Hash</th>
+                <th><i class="fa fa-money"></i> Amount</th>
+                <th><i class="fa fa-sitemap"></i> Mixin</th>
+            </tr>
+            </thead>
+            <tbody id="payments_rows" ng-repeat="payment in walletPayments">
+   <tr>
+                <td align=left>{{payment.time}}</td>
+                <td align=left>{{payment.hash}}</td>
+                <td align=left>{{payment.amount}}</td>
+                <td align=left>{{payment.mixin}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+
+          </div>
+
+          <div class="row"  ng-if="walletAddress == defaultWallet">
+<div  style="text-align: center">
+    <h4 class="yourStats">Enter your wallet address to get stats about your mining.</h4>
+</div></div>
+
+<div class="row"  ng-if="walletAddress != defaultWallet && !haveFetchedMyStuff">
+<div  style="text-align: center">
+    <h4 class="yourStats">Loading.</h4>
+    <p>If this stays loading, please double check your address, it may be incorrect</p>
+</div></div>
+

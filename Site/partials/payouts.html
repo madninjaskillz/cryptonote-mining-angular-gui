@@ -1,0 +1,21 @@
+<h2 class="row-title">Pool Payments</h2>    
+    <div class="yourStats table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><i class="fa fa-clock-o"></i> Time Sent</th>
+                <th><i class="fa fa-paw"></i> Transaction Hash</th>
+                <th><i class="fa fa-money"></i> Amount</th>
+                <th><i class="fa fa-sitemap"></i> Mixin</th>
+            </tr>
+            </thead>
+            <tbody id="payments_rows" ng-repeat="payment in poolPayments">
+   <tr>
+                <td align=left>{{payment.time}}</td>
+                <td align=left>{{payment.hash}}</td>
+                <td align=left>{{payment.amount}}</td>
+                <td align=left>{{payment.mixin}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>

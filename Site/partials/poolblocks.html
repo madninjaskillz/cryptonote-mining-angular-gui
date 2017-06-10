@@ -1,0 +1,25 @@
+  <h2 class="row-title">Pool Blocks:</h2>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th><i class="fa fa-bars"></i> Height</th>
+            <th title="How many more blocks network must mine before this block is matured"><i class="fa fa-link"></i> Maturity</th>
+            <th><i class="fa fa-unlock-alt"></i> Difficulty</th>
+            <th><i class="fa fa-paw"></i> Block Hash</th>
+            <th><i class="fa fa-clock-o"></i> Time Found</th>
+            <th><i class="fa fa-star-half-o"></i> Shares/Diff</th>
+        </tr>
+        </thead>
+        <tbody id="blocks_rows" ng-repeat="block in blockData | orderBy : '-height'">
+ <tr>
+            <td align=left>{{block.height}}</td>
+            <td align=left>{{block.maturity}}</td>
+            <td align=left>{{block.difficulty}}</td>
+            <td align=left>{{block.hash}}</td>
+            <td align=left>{{block.timefound}}</td>
+            <td align=left ng-class="{'warning' : block.shares/block.difficulty < 1}">{{block.shares/block.difficulty *100| number:2}}%</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

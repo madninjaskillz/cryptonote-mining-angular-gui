@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="poolApp" ng-controller="PoolCtrl">
+    <head>
+      <script type="text/javascript" src="config.js"></script>
+      <script type="text/javascript" src="http://palladium.greyblockgames.com/coinConfig.js"></script>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+      <title>{{poolName}} - {{coinName}} mining</title>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+      <link href="css/themify-icons.css" rel="stylesheet">
+      <link href='css/dosis-font.css' rel='stylesheet' type='text/css'>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.0/jquery.timeago.min.js"></script>
+      <script type="text/javascript" src="helpers.js"></script>
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".side-menu">      
+      <div class="container-fluid">
+        <div class="row" id="home" style='background-color: cadetblue;padding:10px;'>  
+          <div class="col-md-3 " style="background-color: white; width:96px;border-radius: 48px; max-width:96px;max-height:96px;min-width:96px;min-height:96px;overflow:hidden; ">
+              <img src="{{coinLogo}}" width=80 style="margin-top:8px; margin-left: -8px">
+          </div>
+          <div class="col-md-3">
+            <h1>{{coinName}} Mining Pool</h1>
+          </div>  
+          <div class="col-md-3"><img src="../img/logo.png" class="logo"></div>
+          <div style="float:right;text-align:right;">     
+            <div><i class="fa fa-tachometer"></i> Hash Rate: {{poolHashRate}}</div>
+            <div><i class="fa fa-clock-o"></i> Block Found: {{poolLastBlockFound}}</div>
+            <div><i class="fa fa-users"></i> Connected Miners: {{poolMinerCount}}</div>
+          </div>
+        </div>
+      </div>
+<div style="background-color:#ededed;">    
+      <div class="container">
+        <div class="row me-row schedule" id="schedule">
+          <div class="col-md-12">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" ng-click="currentTab = ''" ng-class="{'active': '-'+currentTab == '-'}"><a href="#={{walletAddress}}" role="tab" data-toggle="tab">Overview</a></li>
+              <li role="presentation" ng-click="currentTab = 'mining'" ng-class="{'active': currentTab == 'mining'}"><a href="#mining={{walletAddress}}"  role="tab" data-toggle="tab">Mining</a></li>
+              <li role="presentation" ng-click="currentTab = 'blocks'" ng-class="{'active': currentTab == 'blocks'}"><a href="#blocks={{walletAddress}}" role="tab" data-toggle="tab">Blocks</a></li>
+              <li role="presentation" ng-click="currentTab = 'payouts'" ng-class="{'active': currentTab == 'payouts'}"><a href="#payouts={{walletAddress}}" role="tab" data-toggle="tab">Payouts</a></li>
+              <li role="presentation" ng-click="currentTab = 'mystats'" ng-class="{'active': currentTab == 'mystats'}"><a href="#mystats={{walletAddress}}" role="tab" data-toggle="tab">My Stats</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+<div style="background-color: white;margin: -40px;">
+  <div style="padding-left:40px;padding-right:40px;margin-left:40px; margin-right: 40px;">
+          <div class="row me-row content-ct speaker" style="margin: 10px;" ng-if="'-'+currentTab == '-'" ng-include="'partials/overview.html'"></div>
+          <div class="row me-row content-ct speaker" style="margin: 10px;" ng-if="currentTab == 'mining'" ng-include="'partials/mining.html'"></div>
+          <div class="row me-row content-ct speaker" ng-if="currentTab == 'payouts'" style="margin: 10px;" ng-include="'partials/payouts.html'"></div>
+          <div class="row me-row content-ct speaker" ng-if="currentTab == 'blocks'" style="margin: 10px;" ng-include="'partials/poolblocks.html'"></div>
+          <div class="row me-row content-ct speaker" ng-if="currentTab == 'mystats'" style="margin: 10px;" ng-include="'partials/mystats.html'"></div>
+          </div>
+          </div>
+      </div>
+
+      <!-- Start: Footer -->
+      <div class="container-fluid footer">
+        traid.me 2017
+      </div>
+      <!-- End: Footer -->
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="js/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.easing.min.js"></script>
+      <script src="js/scrolling-nav.js"></script>
+      <script src="js/validator.js"></script>
+         
+         <script type="text/javascript" src="poolController.js" >
+
+    </script>
+    </body>
+    </html>

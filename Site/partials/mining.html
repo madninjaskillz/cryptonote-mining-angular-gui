@@ -1,0 +1,58 @@
+         <h2 class="row-title">Get Mining:</h2>
+
+<div ng-repeat="port in ports">
+          
+       <div class="col-md-4 col-sm-6" style="min-height: 420px; max-height: 420px; overflow:hidden;" ng-click="$scope.setPort(port.port)" >
+           <div style="background-color: #dedede; padding-left: 10px; padding-right:10px;padding-top:10px;">
+            <img src="../img/{{port.desc}}.png" class="speaker-img">
+            <h3>{{port.desc}}</h3>
+          <div><i class="fa fa-tachometer"></i> Port: {{port.port}}</div><br>
+        <div><i class="fa fa-unlock-alt"></i> Starting Difficulty: {{port.difficulty}}</div><br>
+        <div style="float:left;"><input type="radio" name="examplePort" ng-model="examplePort" value="{{port.port}}" ng-click="setPort(port.port)" ng-checked="examplePort == port.port"> Select {{port.port}} as example port.</div>
+          </div>
+          </div>
+          </div>
+    
+ <table class="table">
+        <thead>
+        <tr>
+            <th><i class="fa fa-book"></i> App Name</th>
+            <th><i class="fa fa-car"></i> Architecture</th>
+            <th><i class="fa fa-download"></i> Downloads</th>
+            
+            <th>Example</th>
+        </tr>
+        </thead>
+        <tbody id="mining_apps">
+        <tr>
+            <td class="miningAppTitle">CPUMiner</td>
+            <td align="left">CPU</td>
+            <td align="left">exe:<a target="_blank" href="https://bitcointalk.org/index.php?topic=632724">BitcoinTalk</a><br>src:<a target="_blank" href="https://github.com/wolf9466/cpuminer-multi">Github</a></td>
+            <td align="left"><code>minerd -a cryptonight -o stratum+tcp://{{exampleHost}}:{{examplePort}} -u {{walletAddress}} -p x</code></td>
+        </tr>
+        <tr>
+            <td class="miningAppTitle">YAM Miner (by yvg1900)</td>
+            <td align="left">CPU</td>
+            <td align="left">exe:<a target="_blank" href="https://mega.co.nz/#F!UlkU0RyR!E8n4CFkqVu0WoOnsJnQkSg">MEGA</a></td>
+            <td align="left"><code>yam -c x -M stratum+tcp://<span class="exampleAddress">{{walletAddress}}</span>:x@{{examplePort}}:<span class="examplePort"></span>/xmr</code></td>
+        </tr>
+        <tr>
+            <td class="miningAppTitle">Claymore CPU Miner</td>
+            <td align="left">CPU</td>
+            <td align="left">exe:<a target="_blank" href="https://bitcointalk.org/index.php?topic=647251.0">BitcoinTalk</a></td>
+            <td align="left"><code>NsCpuCNMiner64 -o stratum+tcp://{{exampleHost}}:{{examplePort}} -u <span class="exampleAddress">{{walletAddress}}</span> -p x</code></td>
+        </tr>
+        <tr>
+            <td class="miningAppTitle">Claymore GPU Miner</td>
+            <td align="left">OpenCL (AMD)</td>
+            <td align="left">exe:<a target="_blank" href="https://bitcointalk.org/index.php?topic=638915.0">BitcoinTalk</a></td>
+            <td align="left"><code>NsGpuCNMiner -o stratum+tcp://{{exampleHost}}:{{examplePort}} -u <span class="exampleAddress">{{walletAddress}}</span> -p x</code></td>
+        </tr>
+        <tr>
+            <td class="miningAppTitle">ccminer (forked by tsiv)</td>
+            <td align="left">CUDA (Nvidia)</td>
+            <td align="left">exe:<a target="_blank" href="https://github.com/tsiv/ccminer-cryptonight/releases">Github</a><br>src:<a target="_blank" href="https://github.com/tsiv/ccminer-cryptonight">Github</a></td>           
+            <td align="left"><code>ccminer -o stratum+tcp://{{exampleHost}}:{{examplePort}} -u <span class="exampleAddress">{{walletAddress}}</span> -p x</code></td>
+        </tr>
+        </tbody>
+    </table>

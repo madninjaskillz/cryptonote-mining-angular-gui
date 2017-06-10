@@ -1,0 +1,58 @@
+<h2 class="row-title">Overview:</h2>
+<div class="row">
+    <div class="row">
+        <div class="col-md-3"></div>
+    <div class="col-md-6 stats">
+<h3 class="row-title">{{coinName}}:</h2>
+<img src="{{coinLogo}}" style="max-width: 256;"/>
+<p>{{coinDetails}}</p>
+</div>
+<div class="col-md-3"></div>
+</div>
+</div>
+
+<div class="row">
+    <h3 class="row-title">Wallet/Daemon Downloads:</h2>
+    <div class="col-md-12 stats">
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+            <th><i class="fa fa-book"></i> Download</th>
+            <th><i class="fa fa-download"></i> Downloads</th>
+            
+        </tr>
+        </thead>
+        <tbody id="mining_apps" ng-repeat="download in downloads">
+        <tr>
+            <td align=left>{{download.name}}</td>
+            <td align=left><a target="_blank" href="{{download.url}}">{{download.url}}</a></td>
+        </tr>
+        </table>
+        </div>
+        </div>
+        </div>
+
+
+<div class="row">
+    <h3 class="row-title">Network Stats:</h2>
+    <div class="col-md-6 stats">
+        <h3>Network</h3>
+        <div><i class="fa fa-tachometer"></i> Hash Rate: {{networkHashRate}}</div>
+        <div><i class="fa fa-clock-o"></i> Block Found: {{networkLastBlockFound}}</div>
+        <div><i class="fa fa-unlock-alt"></i> Difficulty: {{difficulty}}</div>
+        <div><i class="fa fa-bars"></i> Blockchain Height: {{blockchainHeight}}</div>
+        <div><i class="fa fa-money"></i> Last Reward: {{networkLastReward}}</div>
+        <div><i class="fa fa-paw"></i> Last Hash: {{networkLastHash}}</div>
+    </div>
+
+    <div class="col-md-6 stats">
+        <h3>Our Pool</h3>
+        <div><i class="fa fa-tachometer"></i> Hash Rate: {{poolHashRate}}</div>
+        <div><i class="fa fa-clock-o"></i> Block Found: {{poolLastBlockFound}}</div>
+        <div><i class="fa fa-users"></i> Connected Miners: {{poolMinerCount}}</div>
+        <div id="donations" ng-if="poolDonations.length > 0"><i class="fa fa-gift"></i> Donations: {{poolDonations}}</div>
+        <div><i class="fa fa-money"></i> Total Pool Fee: {{poolFee}}</div>
+        <div><i class="fa fa-history"></i> Block Found Every: {{blockSolvedTime}} (est.)</div>
+    </div>
+</div>
